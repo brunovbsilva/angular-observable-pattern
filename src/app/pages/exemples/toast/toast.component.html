@@ -1,0 +1,5 @@
+<div class="buttons">
+  <button class="button" *ngFor="let button of buttons" (click)="sendToast(button.type)">
+    {{ button.label | uppercase }}
+  </button>
+</div>
