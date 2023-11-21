@@ -15,11 +15,25 @@
     min-width: 200px;
     padding: 20px;
     margin-bottom: 40px;
+    border-radius: 8px;
+    color: #fff;
     font-size: 24px;
     font-weight: bold;
     text-wrap: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    &--success {
+      background-color: var(--accent-success);
+    }
+    &--danger {
+      background-color: var(--accent-danger);
+    }
+    &--warning {
+      background-color: var(--accent-warning);
+    }
+    &--info {
+      background-color: var(--accent-info);
+    }
   }
 }
 

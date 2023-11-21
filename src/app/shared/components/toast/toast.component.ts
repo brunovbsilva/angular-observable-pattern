@@ -2,11 +2,13 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ToastService } from './service/toast.service';
 import { IToast } from './interfaces/toast.interface';
+import { enterLeaveAnimations } from './animations/enter-leave.animations';
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss']
+  styleUrls: ['./toast.component.scss'],
+  animations: [ enterLeaveAnimations ]
 })
 export class ToastComponent implements OnDestroy {
 
