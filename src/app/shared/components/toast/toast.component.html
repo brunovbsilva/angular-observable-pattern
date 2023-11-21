@@ -1,6 +1,6 @@
 <div class="toast-list">
   <div class="toast" *ngFor="let toast of toasts" [ngClass]="toast.getClass()">
-    <div class="toast-message">{{ toast.message }}</div>
+    <div class="toast-message" [innerHTML]="toast.message"></div>
     <div class="toast-close" (click)="removeToast(toast)">&times;</div>
   </div>
 </div>
