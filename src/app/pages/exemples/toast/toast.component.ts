@@ -40,6 +40,27 @@ export class ToastComponent {
     }
   }
 
+  sendCustomToast(type: ToastType, message: string) {
+    if(message === '') {
+      this.service.warning('Por favor, digite uma mensagem!', expirationTime);
+      return;
+    }
+    switch (type) {
+      case ToastType.SUCCESS:
+        this.service.success(message, expirationTime);
+        break;
+      case ToastType.DANGER:
+        this.service.danger(message, expirationTime);
+        break;
+      case ToastType.WARNING:
+        this.service.warning(message, expirationTime);
+        break;
+      case ToastType.INFO:
+        this.service.info(message, expirationTime);
+        break;
+    }
+  }
+
   getClass(type: ToastType) {
     return {
       'button--success': type === ToastType.SUCCESS,

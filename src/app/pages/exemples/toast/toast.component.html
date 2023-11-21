@@ -7,3 +7,18 @@
     {{ button.label | uppercase }}
   </button>
 </div>
+
+<p class="message">Escreva sua mensagem para ser disparada em um toast</p>
+
+<div class="input-container">
+  <input #message type="text" class="toast-input" placeholder="Digite aqui sua mensagem"/>
+</div>
+
+<div class="buttons">
+  <button *ngFor="let button of buttons" 
+    class="button" 
+    [ngClass]="getClass(button.type)"
+    (click)="sendCustomToast(button.type, message.value)">
+    {{ button.label | uppercase }}
+  </button>
+</div>

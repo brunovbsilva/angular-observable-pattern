@@ -37,6 +37,25 @@
   }
 }
 
+.input-container {
+  width: 100%;
+  margin: 16px 0;
+  padding: 0 20px;
+  position: relative;
+  .toast-input {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 24px;
+    line-height: 1.5;
+    padding: 0 16px;
+    color: var(--text-strong);
+    ::placeholder {
+      color: var(--text-light);
+    }
+  }
+}
+
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
 @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
 @media (min-width:641px)  { 
