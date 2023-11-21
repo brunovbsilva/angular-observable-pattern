@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+import { ToastType } from 'src/app/shared/components/toast/enums/toast-type.enum';
 import { ToastService } from 'src/app/shared/components/toast/service/toast.service';
 
+interface ToastButtons {
+  label: string;
+  type: ToastType;
+}
+const expirationTime: number = 3000;
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
@@ -8,29 +14,38 @@ import { ToastService } from 'src/app/shared/components/toast/service/toast.serv
 })
 export class ToastComponent {
 
-  buttons = [
-    { label: 'Toast de sucesso', type: 0 },
-    { label: 'Toast de erro', type: 1 },
-    { label: 'Toast de alerta', type: 2 },
-    { label: 'Toast de informação', type: 3 }
+  public buttons: ToastButtons[] = [
+    { label: 'Sucesso', type: ToastType.SUCCESS },
+    { label: 'Erro', type: ToastType.DANGER },
+    { label: 'Alerta', type: ToastType.WARNING },
+    { label: 'Informação', type: ToastType.INFO }
   ];
 
   constructor(private service: ToastService) { }
 
-  sendToast(type: number) {
+  sendToast(type: ToastType) {
     switch (type) {
-      case 0:
-        this.service.success('Toast de sucesso', 1000);
+      case ToastType.SUCCESS:
+        this.service.success('Olá! Sou um toast de SUCESSO capturado pelo observable!', expirationTime);
         break;
-      case 1:
-        this.service.danger('Toast de erro', 1000);
+      case ToastType.DANGER:
+        this.service.danger('Olá! Sou um toast de ERRO capturado pelo observable!', expirationTime);
         break;
-      case 2:
-        this.service.warning('Toast de alerta', 1000);
+      case ToastType.WARNING:
+        this.service.warning('Olá! Sou um toast de ALERTA capturado pelo observable!', expirationTime);
         break;
-      case 3:
-        this.service.info('Toast de informação', 1000);
+      case ToastType.INFO:
+        this.service.info('Olá! Sou um toast de INFORMAÇÃO capturado pelo observable!', expirationTime);
         break;
     }
+  }
+
+  getClass(type: ToastType) {
+    return {
+      'button--success': type === ToastType.SUCCESS,
+      'button--danger': type === ToastType.DANGER,
+      'button--warning': type === ToastType.WARNING,
+      'button--info': type === ToastType.INFO
+    };
   }
 }

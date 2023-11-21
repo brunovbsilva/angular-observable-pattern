@@ -1,5 +1,9 @@
+<p class="message">Clique para disparar toasts via Subject</p>
 <div class="buttons">
-  <button class="button" *ngFor="let button of buttons" (click)="sendToast(button.type)">
+  <button *ngFor="let button of buttons" 
+    class="button" 
+    [ngClass]="getClass(button.type)"
+    (click)="sendToast(button.type)">
     {{ button.label | uppercase }}
   </button>
 </div>

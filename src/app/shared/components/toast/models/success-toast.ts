@@ -1,4 +1,4 @@
-import { IToast } from "./itoast";
+import { IToast } from "../interfaces/toast.interface";
 
 export class SuccessToast implements IToast {
   constructor(

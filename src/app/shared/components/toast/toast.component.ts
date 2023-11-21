@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ToastService } from './service/toast.service';
-import { IToast } from './models/itoast';
+import { IToast } from './interfaces/toast.interface';
 
 @Component({
   selector: 'app-toast',
@@ -10,14 +10,14 @@ import { IToast } from './models/itoast';
 })
 export class ToastComponent implements OnDestroy {
 
-  private subscription$: Subscription;
+  public subscription$: Subscription;
   public toasts: IToast[] = [];
 
   constructor(private readonly toastService: ToastService) {
     this.subscription$ = this.toastService.getObservable().subscribe({
       next: (toast: IToast) => {
         this.toasts.push(toast);
-        setTimeout(() => this.removeToast(toast), toast.expirationTime)
+        setTimeout(() => this.removeToast(toast), toast.expirationTime);
       }
     });
   }

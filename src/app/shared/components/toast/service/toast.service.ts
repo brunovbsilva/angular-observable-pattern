@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { IToast } from '../models/itoast';
+import { IToast } from '../interfaces/toast.interface';
 import { SuccessToast } from '../models/success-toast';
 import { DangerToast } from '../models/danger-toast';
 import { WarnToast } from '../models/warn-toast';
