@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { ToastComponent } from "./components/toast/toast.component";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { BrowserModule } from "@angular/platform-browser";
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ]
 })
 export class SharedModule { }

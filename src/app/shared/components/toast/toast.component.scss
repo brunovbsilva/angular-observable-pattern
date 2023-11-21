@@ -12,19 +12,19 @@
     display: flex;
     justify-content: space-between;
     &--success {
-      background-color: #28a745;
+      background-color: var(--primary-success);
       color: #fff;
     }
     &--danger {
-      background-color: #dc3545;
+      background-color: var(--primary-danger);
       color: #fff;
     }
     &--warning {
-      background-color: #ffc107;
+      background-color: var(--primary-warning);
       color: #fff;
     }
     &--info {
-      background-color: #17a2b8;
+      background-color: var(--primary-info);
       color: #fff;
     }
 
