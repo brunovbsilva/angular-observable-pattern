@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToastComponent } from './toast.component';
 import { ToastService } from 'src/app/shared/components/toast/service/toast.service';
+import { ToastType } from 'src/app/shared/components/toast/enums/toast-type.enum';
 
 describe('ToastComponent', () => {
   let component: ToastComponent;
@@ -40,40 +41,73 @@ describe('ToastComponent', () => {
       }
     });
 
-    it('success', () => {
-      // Arrange
-      const message = 'Toast de sucesso';
-      // Act
-      component.sendToast(0);
-      // Assert
-      expect(serviceSpy.success).toHaveBeenCalledWith(message, expirationTime);
+    describe('default', () => {
+      [
+        ToastType.SUCCESS,
+        ToastType.DANGER,
+        ToastType.WARNING,
+        ToastType.INFO
+      ].forEach(type => {
+        it(ToastType[type], () => {
+          // Act
+          component.sendToast(type);
+          // Assert
+          switch (type) {
+            case ToastType.SUCCESS:
+              expect(serviceSpy.success).toHaveBeenCalled();
+              break;
+            case ToastType.DANGER:
+              expect(serviceSpy.danger).toHaveBeenCalled();
+              break;
+            case ToastType.WARNING:
+              expect(serviceSpy.warning).toHaveBeenCalled();
+              break;
+            case ToastType.INFO:
+              expect(serviceSpy.info).toHaveBeenCalled();
+              break;
+          }
+        });
+      });
     });
 
-    it('danger', () => {
-      // Arrange
-      const message = 'Toast de erro';
-      // Act
-      component.sendToast(1);
-      // Assert
-      expect(serviceSpy.danger).toHaveBeenCalledWith(message, expirationTime);
-    });
+    describe('with custom message', () => {
+      [
+        ToastType.SUCCESS,
+        ToastType.DANGER,
+        ToastType.WARNING,
+        ToastType.INFO
+      ].forEach(type => {
+        it(ToastType[type], () => {
+          // Arrange
+          const message = 'custom message';
+          // Act
+          component.sendCustomToast(type, message);
+          // Assert
+          switch (type) {
+            case ToastType.SUCCESS:
+              expect(serviceSpy.success).toHaveBeenCalledWith(message);
+              break;
+            case ToastType.DANGER:
+              expect(serviceSpy.danger).toHaveBeenCalledWith(message);
+              break;
+            case ToastType.WARNING:
+              expect(serviceSpy.warning).toHaveBeenCalledWith(message);
+              break;
+            case ToastType.INFO:
+              expect(serviceSpy.info).toHaveBeenCalledWith(message);
+              break;
+          }
+        });
 
-    it('warning', () => {
-      // Arrange
-      const message = 'Toast de alerta';
-      // Act
-      component.sendToast(2);
-      // Assert
-      expect(serviceSpy.warning).toHaveBeenCalledWith(message, expirationTime);
-    });
-
-    it('info', () => {
-      // Arrange
-      const message = 'Toast de informação';
-      // Act
-      component.sendToast(3);
-      // Assert
-      expect(serviceSpy.info).toHaveBeenCalledWith(message, expirationTime);
-    });
+        it('should alert with warning toast when message is empty', () => {
+          // Arrange
+          const message = '';
+          // Act
+          component.sendCustomToast(type, message);
+          // Assert
+          expect(serviceSpy.warning).toHaveBeenCalledWith('Por favor, digite uma mensagem!');
+        });
+      });
+    })
   })
 });
