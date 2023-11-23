@@ -11,21 +11,24 @@
     width: 300px;
     display: flex;
     justify-content: space-between;
+    color: #fff;
     &--success {
       background-color: var(--primary-success);
-      color: #fff;
     }
     &--danger {
       background-color: var(--primary-danger);
-      color: #fff;
     }
     &--warning {
       background-color: var(--primary-warning);
-      color: #fff;
     }
     &--info {
       background-color: var(--primary-info);
-      color: #fff;
+    }
+
+    .toast-message {
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: bold;
     }
 
     .toast-close {
@@ -36,6 +39,7 @@
       color: #fff;
       opacity: 0.8;
       transition: opacity 0.3s ease-in-out;
+      margin-left: 5px;
       &:hover {
         opacity: 1;
       }

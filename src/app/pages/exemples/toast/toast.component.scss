@@ -22,17 +22,26 @@
     text-wrap: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    background-color: #fff;
     &--success {
-      background-color: var(--accent-success);
+      border: var(--accent-success) 2px solid;
+      color: var(--accent-success);
     }
     &--danger {
-      background-color: var(--accent-danger);
+      border: var(--accent-danger) 2px solid;
+      color: var(--accent-danger);
     }
     &--warning {
-      background-color: var(--accent-warning);
+      border: var(--accent-warning) 2px solid;
+      color: var(--accent-warning);
     }
     &--info {
-      background-color: var(--accent-info);
+      border: var(--accent-info) 2px solid;
+      color: var(--accent-info);
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
     }
   }
 }
@@ -50,8 +59,12 @@
     line-height: 1.5;
     padding: 0 16px;
     color: var(--text-strong);
+    border: var(--text-regular) 2px solid;
     ::placeholder {
       color: var(--text-light);
+    }
+    &:focus {
+      border-color: var(--text-strong);
     }
   }
 }

@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 :root {
   --primary-success: #2ecc71;
   --primary-danger: #e74c3c;
@@ -9,10 +11,15 @@
   --accent-danger: #c0392b;
   --accent-warning: #f39c12;
   --accent-info: #2980b9;
+
+  --text-strong: #555555;
+  --text-regular: #ababab;
+  --text-light: #e0e0e0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }

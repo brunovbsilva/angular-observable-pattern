@@ -26,16 +26,16 @@ export class ToastComponent {
   sendToast(type: ToastType) {
     switch (type) {
       case ToastType.SUCCESS:
-        this.service.success('Olá! Sou um toast de SUCESSO capturado pelo observable!', expirationTime);
+        this.service.success('Olá! Sou um toast de SUCESSO<br/>capturado pelo observable!', expirationTime);
         break;
       case ToastType.DANGER:
-        this.service.danger('Olá! Sou um toast de ERRO capturado pelo observable!', expirationTime);
+        this.service.danger('Olá! Sou um toast de ERRO<br/>capturado pelo observable!', expirationTime);
         break;
       case ToastType.WARNING:
-        this.service.warning('Olá! Sou um toast de ALERTA capturado pelo observable!', expirationTime);
+        this.service.warning('Olá! Sou um toast de ALERTA<br/>capturado pelo observable!', expirationTime);
         break;
       case ToastType.INFO:
-        this.service.info('Olá! Sou um toast de INFORMAÇÃO capturado pelo observable!', expirationTime);
+        this.service.info('Olá! Sou um toast de INFORMAÇÃO<br/>capturado pelo observable!', expirationTime);
         break;
     }
   }
