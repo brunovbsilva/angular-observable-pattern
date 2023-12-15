@@ -80,21 +80,22 @@ describe('ToastComponent', () => {
         it(ToastType[type], () => {
           // Arrange
           const message = 'custom message';
+          const expirationTime = 3000;
           // Act
           component.sendCustomToast(type, message);
           // Assert
           switch (type) {
             case ToastType.SUCCESS:
-              expect(serviceSpy.success).toHaveBeenCalledWith(message);
+              expect(serviceSpy.success).toHaveBeenCalledWith(message, expirationTime);
               break;
             case ToastType.DANGER:
-              expect(serviceSpy.danger).toHaveBeenCalledWith(message);
+              expect(serviceSpy.danger).toHaveBeenCalledWith(message, expirationTime);
               break;
             case ToastType.WARNING:
-              expect(serviceSpy.warning).toHaveBeenCalledWith(message);
+              expect(serviceSpy.warning).toHaveBeenCalledWith(message, expirationTime);
               break;
             case ToastType.INFO:
-              expect(serviceSpy.info).toHaveBeenCalledWith(message);
+              expect(serviceSpy.info).toHaveBeenCalledWith(message, expirationTime);
               break;
           }
         });
@@ -102,10 +103,11 @@ describe('ToastComponent', () => {
         it('should alert with warning toast when message is empty', () => {
           // Arrange
           const message = '';
+          const expirationTime = 3000;
           // Act
           component.sendCustomToast(type, message);
           // Assert
-          expect(serviceSpy.warning).toHaveBeenCalledWith('Por favor, digite uma mensagem!');
+          expect(serviceSpy.warning).toHaveBeenCalledWith('Por favor, digite uma mensagem!', expirationTime);
         });
       });
     })
